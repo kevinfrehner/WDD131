@@ -158,4 +158,13 @@ figcaption {
     .gallery {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .nav-links.show {
+        flex-direction: initial;
+        justify-content: center;
+    }
+
+    .nav-links.show li {
+        padding: 0 20px
+    }
 }
