@@ -1,49 +1,64 @@
+import { recipes } from "./recipes.mjs";
+
 document.addEventListener("DOMContentLoaded", () => {
-    const searchForm = document.getElementById("search-form");
     const recipesContainer = document.getElementById("recipes");
+    const searchForm = document.getElementById("search-form");
 
-    searchForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const query = event.target.search.value.trim().toLowerCase();
-        loadRecipes(query);
-    });
-
-    async function loadRecipes(query = "") {
-        try {
-            const { recipes } = await import("./recipes.mjs");
-            recipesContainer.innerHTML = "";
-    
-            const filteredRecipes = query
-                ? recipes.filter(recipe => recipe.name.toLowerCase().includes(query))
-                : recipes;
-    
-            filteredRecipes.forEach(recipe => {
-                const recipeElement = document.createElement("div");
-                recipeElement.classList.add("recipe");
-                
-                let stars = "";
-                for (let i = 0; i < 5; i++) {
-                    if (i < recipe.rating) {
-                        stars += `<span aria-hidden="true" class="icon-star">⭐</span>`;
-                    } else {
-                        stars += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
-                    }
-                }
-    
-                recipeElement.innerHTML = `
-                    <h2>${recipe.name}</h2>
-                    <img src="${recipe.image}" alt="${recipe.name}">
-                    <p>${recipe.description}</p>
-                    <span class="rating" role="img" aria-label="Rating: ${recipe.rating} out of 5 stars">
-                        ${stars}
-                    </span>
-                `;
-                recipesContainer.appendChild(recipeElement);
-            });
-        } catch (error) {
-            console.error("Error loading recipes:", error);
-        }
+    function getRandomNumber(num) {
+        return Math.floor(Math.random() * num);
     }
 
-    loadRecipes(); 
+    function getRandomListEntry(list) {
+        return list[getRandomNumber(list.length)];
+    }
+
+    function tagsTemplate(tags) {
+        return `<ul class="recipe__tags">${tags.map(tag => `<li>${tag}</li>`).join(" ")}</ul>`;
+    }
+
+    function ratingTemplate(rating) {
+        let html = `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">`;
+        for (let i = 1; i <= 5; i++) {
+            html += i <= rating ? `<span aria-hidden="true" class="icon-star">⭐</span>` : `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
+        }
+        html += `</span>`;
+        return html;
+    }
+
+    function recipeTemplate(recipe) {
+        return `<figure class="recipe">
+            <img src="${recipe.image}" alt="image of ${recipe.name}" />
+            <figcaption>
+                <h2><a href="#">${recipe.name}</a></h2>
+                <p class="recipe__ratings">${ratingTemplate(recipe.rating)}</p>
+                <p class="recipe__description">${recipe.description}</p>
+            </figcaption>
+        </figure>`;
+    }
+
+    function renderRecipes(recipeList) {
+        recipesContainer.innerHTML = recipeList.map(recipeTemplate).join(" ");
+    }
+
+    function filterRecipes(query) {
+        return recipes.filter(recipe => 
+            recipe.name.toLowerCase().includes(query) ||
+            recipe.description.toLowerCase().includes(query) ||
+            recipe.tags.find(tag => tag.toLowerCase().includes(query))
+        ).sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    function searchHandler(event) {
+        event.preventDefault();
+        const query = event.target.search.value.trim().toLowerCase();
+        renderRecipes(filterRecipes(query));
+    }
+
+    function init() {
+        const recipe = getRandomListEntry(recipes);
+        renderRecipes([recipe]);
+    }
+
+    searchForm.addEventListener("submit", searchHandler);
+    init();
 });
