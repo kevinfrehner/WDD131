@@ -1,0 +1,59 @@
+For my site, I want to create something that I can use outside of this class and use in the future to help me find jobs out of school.
+I will create this website to have a professional portfolio, and hopefully show it to future employers.
+
+I will use javascript to implement a "last update" feature and create a slideshow like visual that displays my projects, with their links to the source code,
+as well as a description of the projects.
+
+For this project, I will not use a logo and I will instead use portraits to give my page a more professional approach. 
+
+#0526AC, #FFFFFF, and #606060 will be my color palette for my page, as it will maintain a sleek design that is simple and effective.
+I will also use Helvetica as my font.
+
+HEADER: Kevin Frehner Portfolio
+              WDD 131
+
+Overview:
+
+With this webpage I would like to help users get familiar with who I am and the type of work/project I am capable of.
+
+I am intending this to be targeted towards future employers who are interested in what I can bring to the table.
+
+Some dynamic elements that I incorporated into this website is the use of a "last updated" feature as well as a slideshow 
+displaying my projects with links to the source code and a document explaining the purpose of this project and what the development process
+was like.
+
+Branding:
+
+My website logo will be a portrait
+
+Style guide:
+
+Primary: #0526AC
+Secondary: #FFFFFF
+Accent 1: #606060
+
+Typography: 
+Heading Font: Futura
+Paragraph Font: Helvetica
+
+Normal Paragraph: 
+I am a Computer Science Major that has placed an emphasis in studying Machine/Deep Learning. Some projects that have fostered my interest in
+this field include my Flappy Bird AI project using pygame and the NEAT module, as well as Finance Predictors using Yahoo Finance.
+
+Colored Paragraph:
+#606060
+I am a Computer Science Major that has placed an emphasis in studying Machine/Deep Learning. Some projects that have fostered my interest in
+this field include my Flappy Bird AI project using pygame and the NEAT module, as well as Finance Predictors using Yahoo Finance.
+
+Navigation:
+Home , Projects, About
+
+Content:
+Home Page: Who I am, and what my goals to accomplish with my future career/projects, Portraits and project images.
+Projects: Desrcibe my projects and include links to a text document explaining what I learned and how I accomplished the projects
+Include links to source code.
+
+Wireframes:
+Home: ATTACHED IN ASSIGNMENT DETAILS AS IMG 1
+Projects: ATTACHED IN ASSIGNMENT DETAILS AS IMG 2
+About: ATTACHED IN ASSIGNMENT DETAILS AS IMG 3
