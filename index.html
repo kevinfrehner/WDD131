@@ -1,46 +1,59 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Book</title>
-    <link rel="stylesheet" href="recipes.css">
-    
-    <meta property="og:title" content="Recipe Book">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Discover and share amazing recipes!">
-    <meta property="og:image" content="recipe-book.png">
-    <meta property="og:url" content="/index.html">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>Kevin Frehner Portfolio</title>
+    <link rel="stylesheet" href="site.css">
+    <script defer src="site.js"></script>
 </head>
 <body>
     <header>
-        <a href="#" onclick="location.reload();" display: flex; align-items: center; text-decoration: none; color: inherit;></a>
-        <img src="recipe-book.png" alt="Recipe Book Logo" style="cursor: pointer;">
-        <h1>Recipe Book</h1>
+        <h1>Kevin Frehner Portfolio</h1>
+        <h2>WDD 131</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
     </header>
     
-    <main>
-        <form id="search-form">
-            <label for="search">Find a Recipe!</label>
-            <input type="text" id="search" name="search">
-            <button type="submit">Search</button>
-        </form>
-        
-        <section id="recipes">
-        </section>
-    </main>
+    <section id="home">
+        <h2>Welcome</h2>
+        <img src="profile_picture.jpg" alt="Profile Picture">
+        <p>Aspiring Machine Learning Engineer</p>
+    </section>
+    
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="FlappyBirdIcon.jpg" alt="Flappy Bird AI">
+                <div class="text">Flappy Bird AI - <a href="https://github.com/kevinfrehner/NEATFlappyBird/blob/main/FlappyBird.py">Source Code</a></div>
+            </div>
+            <div class="slide fade">
+                <img src="YahooFinanceIcon.jpg" alt="Project 2">
+                <div class="text">Finance Predictor - <a href="#">Source Code</a></div>
+            </div>
+            <a id="prev" class="prev">&#10094;</a>
+            <a id="next" class="next">&#10095;</a>
+        </div>
+    </section>
+    
+    <section id="about">
+        <h2>Educational Career</h2>
+        <p class="colored">Bachelor's Degree in Computer Science - Brigham Young University-Idaho</p>
+    </section>
     
     <footer>
-        <p>&copy; 2023</p>
-        <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">Recipe icons created by Freepik - Flaticon</a>
-        <div class="social">
-            <a href="#"><img src="OIP.jpg" alt="Instagram"></a>
-            <a href="#"><img src="R.png" alt="YouTube"></a>
-            <a href="#"><img src="OIP (1).jpg" alt="Pinterest"></a>
+        <div class="footer-buttons">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
         </div>
+        <p>Last updated: <span id="lastUpdated"></span></p>
     </footer>
-    
-    <script type="module" src="main.js"></script>
 </body>
 </html>
